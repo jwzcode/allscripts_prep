@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace nothinbutdotnetprep.collections
 {
@@ -14,12 +15,15 @@ namespace nothinbutdotnetprep.collections
 
         public IEnumerable<Movie> all_movies()
         {
+            //return new ReadOnlyCollection<Movie>(this.movies);
             return this.movies;
         }
 
         public void add(Movie movie)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            if (!movies.Contains(movie))
+                movies.Add(movie); 
         }
 
         public IEnumerable<Movie> sort_all_movies_by_title_descending()
